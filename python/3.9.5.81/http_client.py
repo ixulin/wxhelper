@@ -1,9 +1,10 @@
 ﻿import requests
 import json
 
+host = "http://127.0.0.1:19088"
 
 def checkLogin():
-    url = "http://127.0.0.1:19088/api/checkLogin"
+    url = host + "/api/checkLogin"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -11,7 +12,7 @@ def checkLogin():
 
 
 def userInfo():
-    url = "http://127.0.0.1:19088/api/userInfo"
+    url = host + "/api/userInfo"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -19,15 +20,11 @@ def userInfo():
 
 
 def sendTextMsg():
-    url = "http://127.0.0.1:19088/api/sendTextMsg"
+    url = host + "/api/sendTextMsg"
     payload = json.dumps({
-        "wxid": "yehuadetaiyang",
+        "wxid": "filehelper",
         "msg": "12www"
     })
-    # payload = json.dumps({
-    #     "wxid": "filehelper",
-    #     "msg": "12www"
-    # })
     headers = {
         'Content-Type': 'application/json'
     }
@@ -36,7 +33,7 @@ def sendTextMsg():
 
 
 def sendImagesMsg():
-    url = "http://127.0.0.1:19088/api/sendImagesMsg"
+    url = host + "/api/sendImagesMsg"
     print("modify imagePath")
     raise RuntimeError("modify imagePath then deleted me")
     payload = json.dumps({
@@ -53,7 +50,7 @@ def sendImagesMsg():
 
 
 def sendFileMsg():
-    url = "http://127.0.0.1:19088/api/sendFileMsg"
+    url = host + "/api/sendFileMsg"
     print("modify filePath")
     raise RuntimeError("modify filePath then deleted me")
     payload = json.dumps({
@@ -68,9 +65,9 @@ def sendFileMsg():
 
 
 def hookSyncMsg():
-    url = "http://127.0.0.1:19088/api/hookSyncMsg"
-    # print("modify ip port url ")
-    # raise RuntimeError("modify ip port url then deleted me")
+    url = host + "/api/hookSyncMsg"
+    print("modify ip port url ")
+    raise RuntimeError("modify ip port url then deleted me")
     payload = json.dumps({
         "port": "19099",
         "ip": "127.0.0.1",
@@ -86,7 +83,7 @@ def hookSyncMsg():
 
 
 def unhookSyncMsg():
-    url = "http://127.0.0.1:19088/api/unhookSyncMsg"
+    url = host + "/api/unhookSyncMsg"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -94,7 +91,7 @@ def unhookSyncMsg():
 
 
 def getContactList():
-    url = "http://127.0.0.1:19088/api/getContactList"
+    url = host + "/api/getContactList"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -102,7 +99,7 @@ def getContactList():
 
 
 def getDBInfo():
-    url = "http://127.0.0.1:19088/api/getDBInfo"
+    url = host + "/api/getDBInfo"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -110,7 +107,7 @@ def getDBInfo():
 
 
 def execSql():
-    url = "http://127.0.0.1:19088/api/execSql"
+    url = host + "/api/execSql"
     print("modify dbHandle ")
     raise RuntimeError("modify dbHandle then deleted me")
     payload = json.dumps({
@@ -125,7 +122,7 @@ def execSql():
 
 
 def getChatRoomDetailInfo():
-    url = "http://127.0.0.1:19088/api/getChatRoomDetailInfo"
+    url = host + "/api/getChatRoomDetailInfo"
     print("modify chatRoomId ")
     raise RuntimeError("modify chatRoomId then deleted me")
     payload = json.dumps({
@@ -139,7 +136,7 @@ def getChatRoomDetailInfo():
 
 
 def addMemberToChatRoom():
-    url = "http://127.0.0.1:19088/api/addMemberToChatRoom"
+    url = host + "/api/addMemberToChatRoom"
     print("modify chatRoomId  memberIds ")
     raise RuntimeError("modify chatRoomId memberIds then deleted me")
     payload = json.dumps({
@@ -156,7 +153,7 @@ def addMemberToChatRoom():
 
 
 def delMemberFromChatRoom():
-    url = "http://127.0.0.1:19088/api/delMemberFromChatRoom"
+    url = host + "/api/delMemberFromChatRoom"
     print("modify chatRoomId  memberIds ")
     raise RuntimeError("modify chatRoomId memberIds then deleted me")
     payload = json.dumps({
@@ -171,7 +168,7 @@ def delMemberFromChatRoom():
 
 
 def modifyNickname():
-    url = "http://127.0.0.1:19088/api/modifyNickname"
+    url = host + "/api/modifyNickname"
     print("modify chatRoomId  wxid  nickName")
     raise RuntimeError("modify chatRoomId  wxid  nickName then deleted me")
     payload = json.dumps({
@@ -189,7 +186,7 @@ def modifyNickname():
 def getMemberFromChatRoom():
     print("modify chatRoomId  ")
     raise RuntimeError("modify chatRoomId then deleted me")
-    url = "http://127.0.0.1:19088/api/getMemberFromChatRoom"
+    url = host + "/api/getMemberFromChatRoom"
     payload = json.dumps({
         "chatRoomId": "123@chatroom"
     })
@@ -203,7 +200,7 @@ def getMemberFromChatRoom():
 def topMsg():
     print("modify msgId  ")
     raise RuntimeError("modify msgId then deleted me")
-    url = "http://127.0.0.1:19088/api/topMsg"
+    url = host + "/api/topMsg"
     payload = json.dumps({
         "msgId": 1222222
     })
@@ -218,7 +215,7 @@ def removeTopMsg():
     print("modify msgId chatRoomId ")
     raise RuntimeError("modify msgId chatRoomId then deleted me")
 
-    url = "http://127.0.0.1:19088/api/removeTopMsg"
+    url = host + "/api/removeTopMsg"
 
     payload = json.dumps({
         "chatRoomId": "123@chatroom",
@@ -235,7 +232,7 @@ def InviteMemberToChatRoom():
     print("modify memberIds chatRoomId ")
     raise RuntimeError("modify memberIds chatRoomId then deleted me")
 
-    url = "http://127.0.0.1:19088/api/InviteMemberToChatRoom"
+    url = host + "/api/InviteMemberToChatRoom"
 
     payload = json.dumps({
         "chatRoomId": "123@chatroom",
@@ -249,7 +246,7 @@ def InviteMemberToChatRoom():
 
 
 def hookLog():
-    url = "http://127.0.0.1:19088/api/hookLog"
+    url = host + "/api/hookLog"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -257,7 +254,7 @@ def hookLog():
 
 
 def unhookLog():
-    url = "http://127.0.0.1:19088/api/unhookLog"
+    url = host + "/api/unhookLog"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
@@ -267,7 +264,7 @@ def unhookLog():
 def createChatRoom():
     print("modify memberIds  ")
     raise RuntimeError("modify memberIds then deleted me")
-    url = "http://127.0.0.1:19088/api/createChatRoom"
+    url = host + "/api/createChatRoom"
 
     payload = json.dumps({
         "memberIds": "wxid_8yn4k908tdqp22,wxid_oyb662qhop4422"
@@ -281,7 +278,7 @@ def createChatRoom():
 def quitChatRoom():
     print("modify chatRoomId  ")
     raise RuntimeError("modify chatRoomId then deleted me")
-    url = "http://127.0.0.1:19088/api/quitChatRoom"
+    url = host + "/api/quitChatRoom"
 
     payload = json.dumps({
     "chatRoomId": "123@chatroom"
@@ -296,7 +293,7 @@ def quitChatRoom():
 def forwardMsg():
     print("modify msgId  ")
     raise RuntimeError("modify msgId then deleted me")
-    url = "http://127.0.0.1:19088/api/forwardMsg"
+    url = host + "/api/forwardMsg"
 
     payload = json.dumps({
     "wxid": "filehelper",
@@ -309,7 +306,7 @@ def forwardMsg():
     print(response.text)
 
 def getSNSFirstPage():
-    url = "http://127.0.0.1:19088/api/getSNSFirstPage"
+    url = host + "/api/getSNSFirstPage"
 
     payload = {}
     headers = {}
@@ -319,7 +316,7 @@ def getSNSFirstPage():
 def getSNSNextPage():
     print("modify snsId  ")
     raise RuntimeError("modify snsId then deleted me")
-    url = "http://127.0.0.1:19088/api/getSNSNextPage"
+    url = host + "/api/getSNSNextPage"
 
     payload = json.dumps({
     "snsId": ""
@@ -335,7 +332,7 @@ def getSNSNextPage():
 def addFavFromMsg():
     print("modify msgId  ")
     raise RuntimeError("modify msgId then deleted me")
-    url = "http://127.0.0.1:19088/api/addFavFromMsg"
+    url = host + "/api/addFavFromMsg"
 
     payload = json.dumps({
     "msgId": "1222222"
@@ -351,7 +348,7 @@ def addFavFromMsg():
 def addFavFromImage():
     print("modify wxid imagePath ")
     raise RuntimeError("modify wxid  imagePath then deleted me")
-    url = "http://127.0.0.1:19088/api/addFavFromImage"
+    url = host + "/api/addFavFromImage"
 
     payload = json.dumps({
     "wxid": "",
@@ -368,7 +365,7 @@ def addFavFromImage():
 def getContactProfile():
     print("modify wxid  ")
     raise RuntimeError("modify wxid   then deleted me")
-    url = "http://127.0.0.1:19088/api/getContactProfile"
+    url = host + "/api/getContactProfile"
 
     payload = json.dumps({
     "wxid": ""
@@ -384,7 +381,7 @@ def getContactProfile():
 def sendAtText():
     print("modify wxids  chatRoomId")
     raise RuntimeError("modify wxids   chatRoomId then deleted me")
-    url = "http://127.0.0.1:19088/api/sendAtText"
+    url = host + "/api/sendAtText"
 
     payload = json.dumps({
     "wxids": "notify@all",
@@ -402,7 +399,7 @@ def sendAtText():
 def forwardPublicMsg():
     print("modify param ")
     raise RuntimeError("modify param then deleted me")
-    url = "http://127.0.0.1:19088/api/forwardPublicMsg"
+    url = host + "/api/forwardPublicMsg"
 
     payload = json.dumps({
     "appName": "",
@@ -424,7 +421,7 @@ def forwardPublicMsg():
 def forwardPublicMsgByMsgId():
     print("modify param ")
     raise RuntimeError("modify param then deleted me")
-    url = "http://127.0.0.1:19088/api/forwardPublicMsgByMsgId"
+    url = host + "/api/forwardPublicMsgByMsgId"
 
     payload = json.dumps({
     "msgId": 123,
@@ -441,7 +438,7 @@ def forwardPublicMsgByMsgId():
 def downloadAttach():
     print("modify param ")
     raise RuntimeError("modify param then deleted me")
-    url = "http://127.0.0.1:19088/api/downloadAttach"
+    url = host + "/api/downloadAttach"
 
     payload = json.dumps({
     "msgId": 123
@@ -458,7 +455,7 @@ def downloadAttach():
 def decodeImage():
     print("modify param ")
     raise RuntimeError("modify param then deleted me")
-    url = "http://127.0.0.1:19088/api/decodeImage"
+    url = host + "/api/decodeImage"
 
     payload = json.dumps({
     "filePath": "C:\\66664816980131.dat",
@@ -476,7 +473,7 @@ def decodeImage():
 def getVoiceByMsgId():
     print("modify param ")
     raise RuntimeError("modify param then deleted me")
-    url = "http://127.0.0.1:19088/api/getVoiceByMsgId"
+    url = host + "/api/getVoiceByMsgId"
 
     payload = json.dumps({
     "msgId": 7880439644200,
@@ -494,8 +491,5 @@ def getVoiceByMsgId():
 
 if __name__ == '__main__':
     checkLogin()
-    # userInfo()
+    userInfo()
     sendTextMsg()
-    # hookSyncMsg()
-    # unhookSyncMsg()
-    # getContactList()
