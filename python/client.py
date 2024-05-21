@@ -7,7 +7,7 @@ def check_login():
      0.检查是否登录
     :return:
     """
-    url = "127.0.0.1:19088/api/?type=0"
+    url = "http://127.0.0.1:19088/api/?type=0"
     payload = {}
     headers = {}
     response = requests.request("POST", url, headers=headers, data=payload)
